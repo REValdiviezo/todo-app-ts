@@ -1,12 +1,20 @@
-import './App.css'
+import TodoList from "./Componentes/TodoList";
 
-function App() {
 
+const App: React.FC = () => {
   return (
-    <div className='text-6xl font-bold text-blue-300 border-2 border-red-600'>
-      Hola Mundo
+    <div>
+      <h1>Lista de tareas</h1>
+      <div>
+        <h3>N°Tareas: 4</h3>
+        <h3>Pendientes: 3</h3>
+      </div>
+      <div>
+        <h3>Agregar Tarea</h3>
+      </div>
+      <TodoList/>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
