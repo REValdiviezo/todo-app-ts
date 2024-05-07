@@ -1,18 +1,37 @@
-import TodoList from "./Componentes/TodoList";
+import { useState } from "react";
+import Todos from "./Componentes/Todos";
 
+const mockTodos = [
+  {
+    id:'1',
+    title: 'todo 1',
+    completed: false
+  },
+  {
+    id:'2',
+    title: 'todo 2',
+    completed: false
+  },
+  {
+    id:'3',
+    title: 'todo 3',
+    completed: false
+  },
+]
 
 const App: React.FC = () => {
+  const [todos, setTodos] = useState(mockTodos);
+
+  const handleRemove = (id: string): void => {
+    const newTodo = todos.filter(todo => todo.id !== id)
+    setTodos(newTodo)
+  }
+
   return (
     <div>
-      <h1>Lista de tareas</h1>
-      <div>
-        <h3>N°Tareas: 4</h3>
-        <h3>Pendientes: 3</h3>
-      </div>
-      <div>
-        <h3>Agregar Tarea</h3>
-      </div>
-      <TodoList/>
+      <Todos 
+        onRemoveTodo={handleRemove}
+        todos={todos}/>
     </div>
   );
 }
